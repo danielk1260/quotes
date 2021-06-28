@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'semantic-ui-css/semantic.min.css'
+import Quotes from './components/Resources/Quotes';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// http://www.estidia.eu/wp-content/uploads/2018/04/Savin-NY-Website-Background-Web.jpg
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// document.body.style = 'background-image: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2018/10/Abstract-Geometric-Background-Grey.jpg"); background-repeat: no-repeat; background-size: 100% 100%; background-attachment: fixed;';
+
+
+ReactDOM.render(<Quotes />, document.getElementById('root'));
