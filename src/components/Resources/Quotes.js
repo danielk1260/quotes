@@ -17,8 +17,9 @@ const Quotes = () => {
   const [bgColor, setBgColor] = useState({ universe: "#000", stars: "#fff" }); // Background
   const [open, setOpen] = useState(false); // Modal
 
+  
   const handleQuote = () => {
-    // Arroja un objeto con colores invertidos para el componente background
+    
     bgColor.universe === "#000"
       ? setBgColor({ universe: "#fff", stars: "#000" })
       : setBgColor({ universe: "#000", stars: "#fff" });
@@ -38,12 +39,28 @@ const Quotes = () => {
     }
   };
 
+  const randomQuote = () => {
+    bgColor.universe === "#000"
+      ? setBgColor({ universe: "#fff", stars: "#000" })
+      : setBgColor({ universe: "#000", stars: "#fff" });
+    const randomData = Resources.quotes[Math.floor(Math.random() * Resources.quotes.length)];
+    const indexData = Resources.quotes.indexOf(randomData);
+
+    setQuoteList({
+      ...Resources.quotes[indexData],
+      id: indexData,
+      button: "Next",
+    });
+  };
 
   return (
     <Fragment>
       <Background universe={bgColor.universe} stars={bgColor.stars} />
       <div className="centerfixed">
-        <div className="author" style={{ color: bgColor.stars }}> - {quoteList.author}</div>
+        <div className="author" style={{ color: bgColor.stars }}>
+          {" "}
+          - {quoteList.author}
+        </div>
 
         <div className="quotes" style={{ color: bgColor.stars }}>
           <Icon name="quote left" />
@@ -51,7 +68,7 @@ const Quotes = () => {
           <Icon name="quote right" />
         </div>
         <Segment basic>
-        <Button color="black" onClick={() => setOpen(true)} icon="info" />
+          <Button color="black" onClick={() => setOpen(true)} icon="info" />
           <Button
             disabled={quoteList.id === null ? true : false}
             color="twitter"
@@ -65,9 +82,17 @@ const Quotes = () => {
           >
             <Icon name="twitter" /> Twitter
           </Button>
-          <Button color='black'>
-          {quoteList.id === null ? Resources.quotes.length : (quoteList.id + 1) + '/' + Resources.quotes.length } Quotes
+          <Button color="black">
+            {quoteList.id === null
+              ? Resources.quotes.length
+              : quoteList.id + 1 + "/" + Resources.quotes.length}{" "}
+            Quotes
           </Button>
+
+          <Button color="instagram" onClick={randomQuote}>
+            Random Quote
+          </Button>
+
           <Button
             color="black"
             content={quoteList.button}
