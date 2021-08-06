@@ -17,9 +17,7 @@ const Quotes = () => {
   const [bgColor, setBgColor] = useState({ universe: "#000", stars: "#fff" }); // Background
   const [open, setOpen] = useState(false); // Modal
 
-  
   const handleQuote = () => {
-    
     bgColor.universe === "#000"
       ? setBgColor({ universe: "#fff", stars: "#000" })
       : setBgColor({ universe: "#000", stars: "#fff" });
@@ -43,7 +41,8 @@ const Quotes = () => {
     bgColor.universe === "#000"
       ? setBgColor({ universe: "#fff", stars: "#000" })
       : setBgColor({ universe: "#000", stars: "#fff" });
-    const randomData = Resources.quotes[Math.floor(Math.random() * Resources.quotes.length)];
+    const randomData =
+      Resources.quotes[Math.floor(Math.random() * Resources.quotes.length)];
     const indexData = Resources.quotes.indexOf(randomData);
 
     setQuoteList({
@@ -56,9 +55,9 @@ const Quotes = () => {
   return (
     <Fragment>
       <Background universe={bgColor.universe} stars={bgColor.stars} />
+
       <div className="centerfixed">
         <div className="author" style={{ color: bgColor.stars }}>
-          {" "}
           - {quoteList.author}
         </div>
 
@@ -67,6 +66,7 @@ const Quotes = () => {
           {quoteList.quote}
           <Icon name="quote right" />
         </div>
+
         <Segment basic>
           <Button color="black" onClick={() => setOpen(true)} icon="info" />
           <Button

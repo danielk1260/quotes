@@ -9,9 +9,9 @@ const Background = ( { universe = '#000', stars = '#fff' } ) => {
   const particles = {
     particles: {
       number: {
-        value: 850,
+        value: 250,
         density: {
-          enable: true,
+          enable: false,
           value_area: 800,
         },
       },
@@ -25,7 +25,7 @@ const Background = ( { universe = '#000', stars = '#fff' } ) => {
         },
       },
       size: {
-        value: 1.5,
+        value: 1.75,
         random: true,
         anim: {
           enable: true,
@@ -36,7 +36,7 @@ const Background = ( { universe = '#000', stars = '#fff' } ) => {
         enable: false,
       },
       move: {
-        speed: 0.2,
+        speed: 0.5,
       },
     },
   };
